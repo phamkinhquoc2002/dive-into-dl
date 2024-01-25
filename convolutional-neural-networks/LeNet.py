@@ -5,12 +5,8 @@ from torch import nn
 import torch
 from torchvision import datasets
 from d2l import torch as d2l
-from config import device
+from config import device, init_cnn
 
-def init_cnn(module):
-    """Initialize weights for CNNs."""
-    if type(module) == nn.Linear or type(module) == nn.Conv2d:
-        nn.init.xavier_uniform_(module.weight)
 
 class LeNet(d2l.Classifier): #@save
     def __init__(self, lr=0.1, num_classes=10):
@@ -27,6 +23,7 @@ class LeNet(d2l.Classifier): #@save
             nn.LazyLinear(num_classes)
         )
         self.to(device)
+        self.net.apply(init_cnn)
 
 if __name__ == '__main__':
     model = LeNet(lr = 0.1)

@@ -2,7 +2,7 @@ import torch
 import numpy as numpy
 from torch import nn
 from d2l import torch as d2l
-from config import device
+from config import device, init_cnn
 
 
 class AlexNet(d2l.Classifier):
@@ -21,5 +21,11 @@ class AlexNet(d2l.Classifier):
             nn.LazyLinear(4096),
             nn.LazyLinear(num_classes)
         )
-        self.net.apply(d2l.init_cnn)
+        self.net.apply(init_cnn)
         self.to(device)
+
+if __name__ == '__main__':
+    model = AlexNet(lr = 0.1)
+    data = d2l.FashionMNIST(batch_size=128, resize=(32, 32))
+    trainer = d2l.Trainer(max_epochs=10, num_gpus=1)
+    trainer.fit(model, data)
