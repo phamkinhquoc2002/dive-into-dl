@@ -5,7 +5,7 @@ from torch import nn
 import torch
 from torchvision import datasets
 from d2l import torch as d2l
-from config import device, init_cnn
+from config import init_cnn
 
 
 class LeNet(d2l.Classifier): #@save
@@ -22,7 +22,6 @@ class LeNet(d2l.Classifier): #@save
             nn.LazyLinear(100), nn.Sigmoid(),
             nn.LazyLinear(num_classes)
         )
-        self.to(device)
         self.net.apply(init_cnn)
 
 if __name__ == '__main__':

@@ -1,6 +1,5 @@
 import torch
-from torchvision import datasets, transforms
-
+from torch import nn
 
 # Default device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

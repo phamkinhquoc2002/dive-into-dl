@@ -2,7 +2,7 @@ import torch
 import numpy as numpy
 from torch import nn
 from d2l import torch as d2l
-from config import device, init_cnn
+from config import init_cnn
 
 
 class AlexNet(d2l.Classifier):
@@ -22,7 +22,6 @@ class AlexNet(d2l.Classifier):
             nn.LazyLinear(num_classes)
         )
         self.net.apply(init_cnn)
-        self.to(device)
 
 if __name__ == '__main__':
     model = AlexNet(lr = 0.1)
