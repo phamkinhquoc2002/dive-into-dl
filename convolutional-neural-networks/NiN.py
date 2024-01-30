@@ -24,7 +24,7 @@ class NiN(d2l.Module):
             nn.MaxPool2d(kernel_size=3, stride=2),
             nn.Dropout(0.5),
             nin_block(out_channels=num_classes, kernel_size=3, strides=1, padding=1),
-            nn.AdaptiveMaxPool2d(1,1)
+            nn.AdaptiveMaxPool2d(1,1),
             nn.Flatten()
             )
         self.net.apply(init_cnn)

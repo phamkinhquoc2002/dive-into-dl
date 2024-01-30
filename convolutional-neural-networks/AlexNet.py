@@ -8,6 +8,7 @@ from config import init_cnn
 class AlexNet(d2l.Classifier):
     def __init__(self, lr = 0.1, num_classes = 10):
         super().__init__()
+        self.save_hyperparameters()
         self.net = nn.Sequential(
             nn.LazyConv2d(96, kernel_size=4, stride=4, padding=1), nn.ReLU(),
             nn.MaxPool2d(kernel_size=3, stride=2), 
