@@ -24,7 +24,7 @@ class AlexNet(d2l.Classifier):
         self.net.apply(init_cnn)
 
 if __name__ == '__main__':
-    model = AlexNet(lr = 0.1)
+    model = AlexNet(lr=0.1)
     data = d2l.FashionMNIST(batch_size=128, resize=(32, 32))
     trainer = d2l.Trainer(max_epochs=10, num_gpus=1)
     trainer.fit(model, data)
