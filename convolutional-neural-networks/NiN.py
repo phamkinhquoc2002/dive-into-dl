@@ -5,7 +5,7 @@ from d2l import torch as d2l
 from config import init_cnn
 
 def nin_block(out_channels, kernel_size, stride, padding):
-    return nn.Sequantial(
+    return nn.Sequential(
         nn.LazyConv2d(out_channels, kernel_size=kernel_size, stride=stride, padding=padding), nn.ReLU(),
         nn.LazyConv2d(out_channels, kernel_size=1), nn.ReLU(),
         nn.LazyConv2d(out_channels, kernel_size=1), nn.ReLU()
