@@ -494,5 +494,3 @@ def get_dataloader(self, train):
     for i in range(0, len(indices), self.batch_size):
         batch_indices = torch.tensor(indices[i: i+self.batch_size])
         yield self.X[batch_indices], self.y[batch_indices]
-
-  

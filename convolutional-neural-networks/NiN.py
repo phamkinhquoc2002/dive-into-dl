@@ -33,7 +33,7 @@ if __name__ == '__main__':
      model = NiN(lr=0.05)
      trainer = d2l.Trainer(max_epochs=10, num_gpus=1)
      data = d2l.FashionMNIST(batch_size=128, resize=(224, 224))
-     model.apply_init([next(iter(data.get_dataloader(True)))[0]], d2l.init_cnn)
+     model.apply_init([next(iter(data.get_dataloader(True)))[0]], init_cnn())
      trainer.fit(model, data)
 
 
