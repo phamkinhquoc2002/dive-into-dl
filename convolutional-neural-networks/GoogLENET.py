@@ -61,7 +61,7 @@ class GoogLENET(d2l.Classifier):
         self.net.apply(d2l.init_cnn)
 
 if __name__ == '__main__':
-    model = GoogleNet(lr=0.01)
+    model = GoogLENET(lr=0.01)
     trainer = d2l.Trainer(max_epochs=10, num_gpus=1)
     data = d2l.FashionMNIST(batch_size=128, resize=(96, 96))
     model.apply_init([next(iter(data.get_dataloader(True)))[0]], d2l.init_cnn)
