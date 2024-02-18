@@ -24,11 +24,6 @@ class LeNet(d2l.Classifier): #@save
         )
         self.net.apply(init_cnn)
 
-if __name__ == '__main__':
-    model = LeNet(lr=0.1)
-    data = d2l.FashionMNIST(batch_size=128, resize=(32, 32))
-    trainer = d2l.Trainer(max_epochs=10, num_gpus=1)
-    trainer.fit(model, data)
 
 
 
