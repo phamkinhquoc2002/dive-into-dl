@@ -1,11 +1,14 @@
 import argparse
 import importlib
 from d2l import torch as d2l
+from config import init_cnn
+
 
 def train_model(args):
     model_module=importlib.import_module(args.model_path)
     model=getattr(model_module, args.model_name)
     data = d2l.FashionMNIST(batch_size=args.batch_size, resize=(32, 32))
+    model.apply_init([next(iter(data.get_dataloader(True)))[0]], init_cnn())
     trainer = d2l.Trainer(max_epochs=args.max_epoch, num_gpus=args.num_gpus)
     trainer.fit(model, data)
 

@@ -9,6 +9,7 @@ from config import init_cnn
 
 
 class LeNet(d2l.Classifier): #@save
+    """The LeNet block."""
     def __init__(self, lr=0.1, num_classes=10):
         super().__init__()
         self.save_hyperparameters()

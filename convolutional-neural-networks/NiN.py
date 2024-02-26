@@ -4,6 +4,7 @@ from torch import nn
 from d2l import torch as d2l
 from config import init_cnn
 
+
 def nin_block(out_channels, kernel_size, stride, padding):
     return nn.Sequential(
         nn.LazyConv2d(out_channels, kernel_size=kernel_size, stride=stride, padding=padding), nn.ReLU(),
@@ -12,6 +13,7 @@ def nin_block(out_channels, kernel_size, stride, padding):
     )
 
 class NiN(d2l.Module):
+    """The NiN block."""
     def __init__(self, lr =0.1, num_classes=10):
         super().__init__()
         self.save_hyperparameters()
@@ -29,12 +31,6 @@ class NiN(d2l.Module):
             )
         self.net.apply(init_cnn)
 
-if __name__ == '__main__':
-     model = NiN(lr=0.05)
-     trainer = d2l.Trainer(max_epochs=10, num_gpus=1)
-     data = d2l.FashionMNIST(batch_size=128, resize=(224, 224))
-     model.apply_init([next(iter(data.get_dataloader(True)))[0]], init_cnn())
-     trainer.fit(model, data)
 
 
 

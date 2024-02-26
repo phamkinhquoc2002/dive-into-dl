@@ -4,6 +4,7 @@ import re
 import torch
 from d2l import torch as d2l
 
+
 class TimeMachine(d2l.DataModule):
     """The Time Machine dataset."""
     def _download(self):

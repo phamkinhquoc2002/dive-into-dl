@@ -4,6 +4,7 @@ from torch import nn
 from d2l import torch as d2l
 from config import init_cnn
 
+
 def vgg_block(num_convs, out_channels):
     layers = []
     for _ in range(num_convs):

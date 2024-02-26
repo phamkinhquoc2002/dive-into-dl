@@ -5,7 +5,9 @@ from d2l import torch as d2l
 from torch.nn import F
 from config import init_cnn
 
+
 class Inception(nn.Module):
+    """The GoogLENET block."""
     def __init__(self, c1, c2, c3, c4, **kwargs):
         super(Inception, self).__init__(**kwargs)
         #Branch 1
@@ -59,10 +61,3 @@ class GoogLENET(d2l.Classifier):
         self.net = nn.Sequential(self.b1(), self.b2(), self.b3(), self.b4(),
         self.b5(), nn.LazyLinear(num_classes))
         self.net.apply(d2l.init_cnn)
-
-if __name__ == '__main__':
-    model = GoogLENET(lr=0.01)
-    trainer = d2l.Trainer(max_epochs=10, num_gpus=1)
-    data = d2l.FashionMNIST(batch_size=128, resize=(96, 96))
-    model.apply_init([next(iter(data.get_dataloader(True)))[0]], d2l.init_cnn)
-    trainer.fit(model, data)
