@@ -13,6 +13,3 @@ class TimeMachine(d2l.DataModule):
         with open(fname) as f:
             return f.read()
         
-data = TimeMachine()
-raw_text = data._download()
-raw_text[:60]
