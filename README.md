@@ -1,6 +1,6 @@
 ![Project Logo](https://raw.githubusercontent.com/d2l-ai/d2l-en/master/static/logo-with-text.png)
 # dive_into_deep_learning
-This repository contains my solutions to the exercises and implementations of models from the book "Dive Into Deep Learning", authored by Aston Zhang, Zachary C. Lipton, Mu Li, and Alexander J. Smola. The solutions provided here are aimed at helping learners understand and implement concepts discussed in the book.
+This repository contains my implementations of models from the book "Dive Into Deep Learning", authored by Aston Zhang, Zachary C. Lipton, Mu Li, and Alexander J. Smola. The solutions provided here are aimed at helping learners understand and implement concepts discussed in the book.
 
 ## Citation
 If you find this project useful, please consider citing the "Dive Into Deep Learning" book:
